@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import java.time.LocalDate;
 
 import java.util.HashMap;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 
@@ -34,8 +35,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utils.PropertiesReader;
 
-import utils.BrowserFactory;
 
 public class testBase {
 	public static WebDriver driver;
@@ -43,20 +44,21 @@ public class testBase {
 	    public static com.relevantcodes.extentreports.ExtentTest logger;
 	    ExtentReports extent;
 	    LocalDate myObj = LocalDate.now();
+	   Properties prop=PropertiesReader.getProperties();
     @BeforeMethod
     @Parameters({"browser"})
-    public void start(@Optional("chrome") String browername,Method method) {
+    public void start(@Optional("") String browsername,Method method) {
 
+    	 browsername = prop.getProperty("browser");
         
-        
-        if(browername.equalsIgnoreCase("chrome")) {
+        if(browsername.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver=new ChromeDriver(chromeopthion());}
-        else if (browername.equalsIgnoreCase("firefox")) {
+        else if (browsername.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver=new FirefoxDriver();
         }
-        else if(browername.equalsIgnoreCase("edge")) {
+        else if(browsername.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             driver= new EdgeDriver();
         }
