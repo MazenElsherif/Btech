@@ -1,0 +1,28 @@
+<extentreports>
+  <!-- Report Title -->
+  <configuration>
+    <reportName>BTech Automation Test Results</reportName>
+    <documentTitle>Automation Execution Report</documentTitle>
+
+    <!-- Theme: STANDARD or DARK -->
+    <theme>DARK</theme>
+
+    <!-- Encoding -->
+    <encoding>UTF-8</encoding>
+
+    <!-- Protocol: HTTPS or HTTP -->
+    <protocol>HTTPS</protocol>
+
+    <!-- Time format for logs -->
+    <timeStampFormat>yyyy-MM-dd HH:mm:ss</timeStampFormat>
+
+    <!-- Add custom CSS or JavaScript if needed
+    <styles>
+      .test-name { color: #3c8dbc; font-weight: bold; }
+    </styles>
+    <scripts>
+      $('img').addClass('img-responsive');
+    </scripts>
+    -->
+  </configuration>
+</extentreports>
